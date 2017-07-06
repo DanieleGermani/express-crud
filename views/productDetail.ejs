@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <a href="/product"> Go back </a>
+  <h1><%= product.name %></h1>
+  <h2><%= product.price %></h2>
+  <img src="<%= product.imageUrl %>" alt="<%= product.name %>"/>
+  <p><%= product.description %></p>
+  <a href="/product/<%= product._id %>/delete"> Delete that product</a>
+
+  <form action="/product/<%= product._id %>/update" method="POST">
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name" value="<%= product.name %>">
+
+    <label for="price">Price</label>
+    <input type="number" name="price" id="price" value="<%= product.price %>">
+
+    <label for="image-url">Image URL</label>
+    <input type="text" name="imageUrl" id="image-url" value="<%= product.imageUrl %>">
+
+    <label for="description">Description</label>
+    <textarea type="text" name="description" id="description" value="<%= product.description %>"></textarea>
+
+    <button type="submit">Update the product</button>
+  </form>
+</body>
+
+</html>
